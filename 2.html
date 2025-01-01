@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年祝贺网页</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffcc00;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff9900;
+        }
+
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: none;
+        }
+
+        .firework {
+            position: absolute;
+            border-radius: 50%;
+            width: 3px;
+            height: 3px;
+            background: white;
+            opacity: 0;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>新年快乐！</h1>
+    <button onclick="celebrate()">点击庆祝！</button>
+    <div class="fireworks" id="fireworks"></div>
+
+    <script>
+        function celebrate() {
+            const fireworksDiv = document.getElementById('fireworks');
+            fireworksDiv.style.display = 'block';
+            fireworksDiv.innerHTML = ''; // 清空之前的烟花
+
+            for (let i = 0; i < 100; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.left = `${Math.random() * window.innerWidth}px`;
+                firework.style.top = `${Math.random() * window.innerHeight}px`;
+                firework.style.animationDelay = `${Math.random() * 1}s`;
+                fireworksDiv.appendChild(firework);
+            }
+
+            setTimeout(() => {
+                alert('新年快乐！愿你在新的一年里幸福安康！');
+                fireworksDiv.style.display = 'none';
+            }, 1000); // 烟花动画结束后弹出消息
+        }
+    </script>
+</body>
+</html>
