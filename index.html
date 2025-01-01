@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hello</title>
+</head>
+<script>
+     function checkInput() {
+        var input = document.getElementById("userInput").value;
+        var result = document.getElementById("result");
+            if (input.trim() === "C") { 
+                result.textContent = "答对了，新年快乐！";
+            } else {
+					if (input.trim() === "c") { 
+                	result.textContent = "答对了，新年快乐！";
+            	} else {
+                	result.textContent = "答错了";
+				}
+			}
+					var container = document.getElementById('videoContainer');
+					var video = document.createElement('video');
+					video.width = 640; 
+					video.height = 360; 
+					video.autoplay = true;
+					var source = document.createElement('source');
+					source.src = 'https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4'; 
+					source.type = 'video/mp4'; 
+					video.appendChild(source);
+					video.volume = 1.0;
+		 			container.appendChild(video);
+					video.controls = true;
+            
+        }
+    </script>
+<body>
+	<center>
+	<div class="one">
+		<span style="font-size: 50px"><center>提问</center></span>
+	<center>
+	<p>今天是什么日子？</p><br>
+	<p>A.我是傻子啊啊啊&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B.不想上学</p>
+	<p>C.2024年最后一天&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D.不知道呢</p>
+	<input type="text" id="userInput" placeholder="输入选项">
+	<button onclick="checkInput()" style="background-color: blue;color: white">确认</button>
+	<p id="result"></p></center>
+	 <div id="videoContainer">
+	</div>
+	</div>
+	</center>
+	<style>
+		body{
+			 background: linear-gradient(to right, rgb(40, 150, 250), RGB(100, 50, 150));
+		}
+		.one{
+			background: #FFFFFF;
+			width: 90%;
+			height: 800px;
+			border-style: solid;
+			border-color:rgba(22,84,232,0.50);
+			border-radius: 10px;
+		}
+	</style>
+</body>
+</html>
